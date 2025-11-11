@@ -51,7 +51,7 @@
 }
 
 .categories{
-    width: 100vw;
+    /* width: 100vw; */
     height: 55vh;
     margin: 12vh 8vh;
 }
@@ -62,7 +62,7 @@
 }
 
 .categories-images {
-  width: 100vw;
+  /* width: 100vw; */
   height: auto;
   display: flex;           
   align-items: flex-start; 
@@ -82,9 +82,17 @@
   height: auto;            
   border-radius: 8px;      
 }
+.categories-card img:hover{
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
 .categories-card p{
     font-weight: 600;
     margin-top: 1vh;
+}
+.categories-card p:hover{
+    text-decoration: underline #4573A7;
+    color: #4573A7;
 }
 #categories-title:hover{
     font-weight: 600;
@@ -136,4 +144,115 @@
 }
 #shop-new-arrivals{
     font-size: 1.2rem;
+}
+
+.new-arrivals-items{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5vw;
+    overflow-x: auto;
+    scrollbar-width:none;
+    margin-top: 5vh;
+}
+.new-arrivals-items img{
+    height: auto;
+    width: 18vw;
+}
+
+.new-arrivals-items div{
+    margin-left: 6vh;
+}
+.new-arrivals-items span{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    /* font-weight: 500; */
+ }
+#new-arrivals-items-title , #new-arrivals-items-price{
+    font-weight: 700;
+}
+.new-arrivals-items div:hover{
+    color: #4573A7;
+}
+
+.shop{
+    width: 100vw;
+    margin-top: 5vw;
+    display: flex;
+    justify-content: space-between;
+}
+.shop-essentials , .shop-last-call{
+    position: relative;
+}
+.shop-essentials img, .shop-last-call img{
+    width: 50vw;
+    object-fit: cover;
+}
+.shop-essentials-content, .shop-last-call-content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3vh;
+    color: white;
+    font-family: 'Orbikular Roman';
+    font-size: 2.5rem;
+    bottom: 0;
+    left: 0;
+    margin: 3vw 4vw;
+}
+.shop-essentials-content button, .shop-last-call-content button {
+    padding: 1vh 0.5vh;
+    width: auto;
+    font-size: 1.4vw;
+    border: none;
+}
+#shop-last-call-button{
+    color: red;
+}
+.shop-essentials-content button:hover, .shop-last-call-content button:hover{
+    background-color: #A09473;
+}
+
+.house-shirt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 7vw 3vw 0 3.5vw;
+}
+.house-shirt-card{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.house-shirt-card img{
+    object-fit: cover;
+    width: 45vw;
+}
+.house-shirt-card-caption{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.house-shirt-headers{
+    font-size: 2.2rem;
+    font-family: 'Orbikular Roman';
+}
+.house-shirt-image-caption {
+    margin-top: 1vw;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.house-shirt-card button{
+    margin-top: 2.5vw;
+    font-weight: 700;
+    text-align: left;
+    border: none;
+    background-color: inherit;
+}
+.house-shirt-card button:hover{
+    color: #4573A7;
 }
