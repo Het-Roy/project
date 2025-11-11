@@ -256,3 +256,109 @@
 .house-shirt-card button:hover{
     color: #4573A7;
 }
+.dispatch-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5.5vw 0 2.5vw 3vw;
+}
+.dispatch-header h3{
+    font-family: 'Orbikular Roman';
+    font-size: 1.9rem;
+}
+.dispatch-header span{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 3.5vw;
+}
+.dispatch-content{
+    overflow-x: auto;
+    scrollbar-width: none;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.3vw;
+
+}
+.dispatch-card{
+    height: 31vw;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 3vw; 
+}
+.dispatch-card img{
+    width: 25rem;
+}
+.dispatch-card-body{
+    margin: 1.5vh 0 2vh 0;
+}
+.dispatch-date{
+    font-size: 1.5vh;
+    color: #737577;
+}
+.dispatch-card-body h3{
+    font-family: 'Orbikular Roman';
+    font-size: 2.2rem;
+}
+.dispatch-card-body h3:hover{
+    text-decoration: underline ;
+}
+.dispatch-card-body p{
+    color: #5F6062;
+}
+#wild-background{
+    margin-top: 7vw ;
+    background-image: url('./images/walk-for-the-wild.jpg');
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position-x: -3.5vw;
+    object-fit: cover;
+    width: 100vw;
+    padding: 3vw;
+}
+.wild{
+    margin: 8vw;
+    background-color: white;
+}
+.wild-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#wild-title{
+    font-family: 'Orbikular Roman';
+    font-size: 2.1rem;
+    text-align: center;
+    margin: 3vw 0 1.5vw 0;
+
+}
+.wild-card{
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2.5vw;
+    margin: 0 3.5vw;
+    margin-bottom: 3vw;
+
+}
+.wild-card-content{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.wild-star{
+    margin: 1.05vw 0;
+    color: #A09473;
+}
+.wild-review{
+    font-weight: 700;
+}
+.wild-card-content a{
+    color: black;
+    padding-left: 1vh;
+}
