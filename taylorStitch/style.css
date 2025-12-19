@@ -371,12 +371,6 @@
     padding-left: 1vh;
 }
 
-
-
-
-
-
-
 footer{
     width: 100vw;
     display: flex;
@@ -445,9 +439,6 @@ footer{
 }
 .footer-nav-support h4{
     margin-bottom: 1vh;
-}
-.footer-nav-support span{
-   /* font-size: 1.2rem; */
 }
 .footer-nav li{
     color: #777879;
