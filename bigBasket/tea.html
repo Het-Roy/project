@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea - bigbasket</title>
+    <link rel="stylesheet" href="tea.css">
+</head>
+
+<body>
+    <input type="checkbox" id="login-toggle" />
+
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <a href="./index.html"><img src="https://img.utdstc.com/icon/d96/41c/d9641ca4f7a475e91d036e08c83dff7e51c31798115714650342f0711bd6f7b0:200"
+                    alt="bigbasket"></a>
+                <div class="logo-wrapper">
+                    <div class="logo-text">
+                        <span class="logo-text-big">big</span><span class="logo-text-basket">basket</span>
+                    </div>
+                    <div class="logo-enterprise">A <span class="tata">TATA</span> <span
+                            class="enterprise">Enterprise</span></div>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <span class="search-icon"><img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpPOXapq8vcz8yLzf3XqNJQ2jGO05RcNM7F4pfUQJgVeYP741a"
+                        alt="" class="icondo"></span>
+                <input type="text" placeholder="Search for Products...">
+            </div>
+
+            <div class="header-right">
+                <div class="delivery-info">
+                    <p><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ5K0e5SuCKF_5J_j8a_VeIFQKtZhAu41_TiNdkipCbhJuouz8_" alt="" class="icondo"> Delivery in 5 mins</p>
+                    <span>Select Location</span>
+                </div>
+
+                <label for="login-toggle" class="login-btn">Login/ Sign Up</label>
+
+                <div class="cart-icon"><img src="https://cdn-icons-png.freepik.com/512/9968/9968653.png" alt=""
+                        class="icondo"></div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-container">
+                <div class="category-dropdown">
+                    <label for="login-toggle" class="category-btn">
+                        Shop by Category ▼
+                    </label>
+                    <div class="dropdown-content">
+                        <div class="dropdown-left">
+                            <ul>
+                                <li>Electronics</li>
+                                <li>Fashion</li>
+                                <li>Food Court</li>
+                                <li>Beverages</li>
+                                <li>Pharma-1.1</li>
+                                <li>Pharmacy & Wellness</li>
+                                <li>Fruits & Vegetables</li>
+                                <li>Foodgrains, Oil & Masala</li>
+                                <li>Bakery, Cakes & Dairy</li>
+                                <li>Snacks & Branded Foods</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-links">
+                    <a href="exotic.html">Exotic Fruits & Vegatables</a>
+                    <a href="tea.html">Tea</a>
+                    <a href="#">→</a>
+                </div>
+
+                <div class="nav-icons">
+                    <label for="login-toggle" class="nav-icon-btn">
+                        <img src="https://www.bigbasket.com/media/uploads/banner_images/Smart_basket-250124-1.png"
+                            alt="">
+                    </label>
+                    <button class="nav-icon-btn" title="nav-icon">
+                        <img src="https://www.bigbasket.com/media/uploads/banner_images/hp_cmc_m_offer_28_220921_all.png"
+                            alt="">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Shop by Category</h3>
+
+            <div class="category-section">
+                <h4>◀ Beverages</h4>
+            </div>
+
+            <div class="category-section active">
+                <h4>Tea</h4>
+                <div class="subcategory-list">
+                    <a href="#" class="active">Exotic & Flavoured Tea</a>
+                    <a href="#">Green Tea</a>
+                    <a href="#">Leaf & Dust Tea</a>
+                    <a href="#">Tea Bags</a>
+                </div>
+            </div>
+
+            <div class="supersaver-toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" title="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="supersaver-logo">
+                    <span class="super">super</span><span class="saver">saver</span>
+                </span>
+            </div>
+
+            <h3 class="refined-by">Refined by</h3>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-rating">
+                <h4><label for="toggle-rating">Product Rating <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating5">
+                        <label for="rating5"><span class="star-rating">★★★★★</span></label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating4">
+                        <label for="rating4"><span class="star-rating">★★★★☆</span></label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating3">
+                        <label for="rating3"><span class="star-rating">★★★☆☆</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-brands">
+                <h4><label for="toggle-brands">Brands <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <input type="text" class="search-input" placeholder="Search here">
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand1">
+                        <label for="brand1">18 Herbs</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand2">
+                        <label for="brand2">1868 by Tata Tea</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand3">
+                        <label for="brand3">24 Mantra Organic</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand4">
+                        <label for="brand4">3 Roses</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand5">
+                        <label for="brand5">Grasa</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand6">
+                        <label for="brand6">Akhya</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand7">
+                        <label for="brand7">Amar</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand8">
+                        <label for="brand8">Amul</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand9">
+                        <label for="brand9">Apsara</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="brand10">
+                        <label for="brand10">Auric</label>
+                    </div>
+                    <span class="show-more">Show more +</span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-price">
+                <h4><label for="toggle-price">Price <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="price1">
+                        <label for="price1">Less than Rs 20</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price2">
+                        <label for="price2">Rs 21 to Rs 50</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price3">
+                        <label for="price3">Rs 51 to Rs 100</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price4">
+                        <label for="price4">Rs 101 to Rs 200</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price5">
+                        <label for="price5">Rs 201 to Rs 500</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="price6">
+                        <label for="price6">More than Rs 500</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-discount">
+                <h4><label for="toggle-discount">Discount <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="radio" name="discount" id="disc1">
+                        <label for="disc1">Upto 5%</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="discount" id="disc2">
+                        <label for="disc2">5% - 10%</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="discount" id="disc3">
+                        <label for="disc3">10% - 15%</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="discount" id="disc4">
+                        <label for="disc4">15% - 25%</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="discount" id="disc5">
+                        <label for="disc5">More than 25%</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-beverages">
+                <h4><label for="toggle-beverages">Beverages <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="bev-tea">
+                        <label for="bev-tea">Tea</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-origin">
+                <h4><label for="toggle-origin">Country Of Origin <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="india">
+                        <label for="india">India</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="japan">
+                        <label for="japan">Japan</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="srilanka">
+                        <label for="srilanka">Srilanka</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="uk">
+                        <label for="uk">UK</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="vietnam">
+                        <label for="vietnam">Vietnam</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-dietary">
+                <h4><label for="toggle-dietary">Dietary Preference <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="normal">
+                        <label for="normal">Normal</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="stress">
+                        <label for="stress">Stress & Cholesterol Relief</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-flavours">
+                <h4><label for="toggle-flavours">Flavours <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <input type="text" class="search-input" placeholder="Search here">
+                    <div class="filter-option">
+                        <input type="checkbox" id="assorted">
+                        <label for="assorted">Assorted</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="blacktea">
+                        <label for="blacktea">Black tea</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cardamom">
+                        <label for="cardamom">Cardamom</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="chamomile-mint">
+                        <label for="chamomile-mint">Chamomile & mint green tea</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="chamomile">
+                        <label for="chamomile">Chamomile</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="chocolate">
+                        <label for="chocolate">Chocolate</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="darjeeling">
+                        <label for="darjeeling">Darjeeling tea</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="elaichi">
+                        <label for="elaichi">Elaichi</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="fruit">
+                        <label for="fruit">Fruit Flavour</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="fruitsberry">
+                        <label for="fruitsberry">Fruits/Berry</label>
+                    </div>
+                    <span class="show-more">Show more +</span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-infusion">
+                <h4><label for="toggle-infusion">Infusion Type <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="infusion-bags">
+                        <label for="infusion-bags">Infusion bags</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="instant-mix">
+                        <label for="instant-mix">Instant Tea Mix</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="steep">
+                        <label for="steep">Steep Infusion</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="tea-dust">
+                        <label for="tea-dust">Tea Dust</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-powder">
+                <h4><label for="toggle-powder">Powder Type <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="dust">
+                        <label for="dust">Dust</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="leaf">
+                        <label for="leaf">Leaf</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-tea-nature">
+                <h4><label for="toggle-tea-nature">Tea Nature <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="exotic-flavoured">
+                        <label for="exotic-flavoured">Exotic & Flavoured</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="green-tea">
+                        <label for="green-tea">Green Tea</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="leaf-dust">
+                        <label for="leaf-dust">Leaf & Dust</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="tea-bags">
+                        <label for="tea-bags">Tea bags</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <input type="checkbox" class="filter-toggle" id="toggle-deals">
+                <h4><label for="toggle-deals">Top Deals <span>▲</span></label></h4>
+                <div class="filter-content">
+                    <div class="filter-option">
+                        <input type="checkbox" id="deals">
+                        <label for="deals">Deals</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="content-area">
+            <div class="page-header">
+                <h1>Tea (792)</h1>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="discount-badge">23% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/226491_13-red-label-tea-natural-care.jpg?tr=w-154,q-80"
+                            alt="Natural Care Tea Chai" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Red Label</div>
+                        <div class="product-name">Natural Care Tea Chai Made With 5 Ayurvedic Herbs</div>
+                        <select class="product-select">
+                            <option>1 kg</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹477.4</span>
+                            <span class="original-price">₹620</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">12% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/102871_11-red-label-tea.jpg?tr=w-154,q-80"
+                            alt="Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Red Label</div>
+                        <div class="product-name">Tea</div>
+                        <select class="product-select">
+                            <option>1 kg</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹502.06</span>
+                            <span class="original-price">₹570</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">25% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/40128171_9-emperia-kadak-tea.jpg?tr=w-154,q-80"
+                            alt="Kadak Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">emperia</div>
+                        <div class="product-name">Kadak Tea</div>
+                        <select class="product-select">
+                            <option>500 g</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹225</span>
+                            <span class="original-price">₹300</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">17% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/137936_14-taj-mahal-tea.jpg?tr=w-154,q-80"
+                            alt="Taj Mahal Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Taj Mahal</div>
+                        <div class="product-name">Tea</div>
+                        <select class="product-select">
+                            <option>1 kg</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹589.3</span>
+                            <span class="original-price">₹710</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">30% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/40200082_6-tata-tea-gold-tea.jpg?tr=w-154,q-80"
+                            alt="Tea With Gently Rolled Long Leaves" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Tata Tea Gold</div>
+                        <div class="product-name">Tea With Gently Rolled Long Leaves</div>
+                        <select class="product-select">
+                            <option>1.5 kg</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹651</span>
+                            <span class="original-price">₹930</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">32% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/40222687_6-tata-tea-gold-care-tea-blend-with-rich-taste-natural-ingredients-improves-immunity-memory.jpg?tr=w-154,q-80"
+                            alt="Care Goodness Of 5 Natural Ingredients" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Tata Tea Gold Care</div>
+                        <div class="product-name">Care Goodness Of 5 Natural Ingredients</div>
+                        <select class="product-select">
+                            <option>1 kg</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹428.4</span>
+                            <span class="original-price">₹630</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">34% OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/40077764_8-lipton-honey-lemon-green-tea.jpg?tr=w-154,q-80"
+                            alt="Honey Lemon Green Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Lipton</div>
+                        <div class="product-name">Honey Lemon Green Tea</div>
+                        <select class="product-select">
+                            <option>140 g - (100 Bags x 1.4 g each)</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹412</span>
+                            <span class="original-price">₹625</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">₹15 OFF</div>
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/266572_5-3-roses-dust-tea.jpg?tr=w-154,q-80"
+                            alt="Dust Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">3 Roses</div>
+                        <div class="product-name">Dust Tea</div>
+                        <select class="product-select">
+                            <option>500 g</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹365</span>
+                            <span class="original-price">₹380</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="https://www.bbassets.com/media/uploads/p/m/262809_24-lipton-darjeeling-tea.jpg?tr=w-154,q-80"
+                            alt="Darjeeling Long Leaf Tea" class="product-image">
+                        <div class="delivery-badge">⚡ 5 MINS</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="brand-name">Lipton</div>
+                        <div class="product-name">Darjeeling Long Leaf Tea</div>
+                        <select class="product-select">
+                            <option>500 g</option>
+                        </select>
+                        <div class="product-price">
+                            <span class="current-price">₹1020</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="wishlist-btn">🔖</button>
+                            <button class="add-btn">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-wrap" aria-hidden="true">
+        <label for="login-toggle" class="modal-overlay" aria-hidden="true"></label>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+            <div class="left">
+                <h3>Why choose Bigbasket?</h3>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><img
+                            src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0jhkYPe1OH_ULG3aPE8Bls_depNhrFJB7oECbx6HAKUm14qB6"
+                            alt="" class="benefit-icon"></div>
+                    <div>
+                        <strong>Quality</strong><br>
+                        <span style="font-size: 12px; color: #999;">We ensure the best quality products</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><img
+                            src="https://img.freepik.com/premium-vector/logo-watch-icon-design-vector-watch-silhouette-home-watch-isolated-white-background_653669-4292.jpg"
+                            alt="" class="benefit-icon"></div>
+                    <div>
+                        <strong>On time</strong><br>
+                        <span style="font-size: 12px; color: #999;">Delivery within your chosen slot</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><img src="https://celio.in/cdn/shop/files/dispacth.png?v=1728991635"
+                            alt="" class="benefit-icon"></div>
+                    <div>
+                        <strong>Return Policy</strong><br>
+                        <span style="font-size: 12px; color: #999;">Easy returns on damaged products</span>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><img
+                            src="https://png.pngtree.com/png-vector/20190811/ourmid/pngtree-beautiful-rotation-locked-line-black-icon-png-image_1659193.jpg"
+                            alt="" class="benefit-icon"></div>
+                    <div>
+                        <strong>Free Delivery</strong><br>
+                        <span style="font-size: 12px; color: #999;">On orders above minimum value</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Find us on</p>
+                    <div class="app-buttons">
+                        <div class="app-btn">
+                            <img src="https://media.licdn.com/dms/image/v2/C560BAQHL4la-YziC6w/company-logo_200_200/company-logo_200_200/0/1631404102822?e=2147483647&v=beta&t=gDhyDHygNWRiedd9-ksojyo0cEVx5s24Gjpof2vCNKg"
+                                alt="" class="login-footer-icon">
+                        </div>
+                        <div class="app-btn">
+                            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTh4zWyYtKv_YQAUCVNbNTjpG1299UZeoVTvT7B8BcujZa6aim9"
+                                alt="" class="login-footer-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <label for="login-toggle" class="modal-close" title="Close">×</label>
+
+                <h2 id="loginTitle">Login/ Sign up</h2>
+                <p class="subtitle">Using OTP</p>
+
+                <input class="login-input" type="text" placeholder="Enter Phone number/ Email Id" />
+
+                <button class="continue-btn">Continue</button>
+
+                <p class="terms">
+                    By continuing, I accept TCP - <a href="#">bigbasket's Terms and Conditions</a> & <a href="#">Privacy
+                        Policy</a><br>
+                    This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and
+                    href="#">Terms of Service</a> apply.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3>Bigbasket</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">In News</a></li>
+                    <li><a href="#">Green bigbasket</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">bb Daily</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">bb Wallet FAQs</a></li>
+                    <li><a href="#">bb Wallet T&Cs</a></li>
+                    <li><a href="#">Vendor Connect</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-logo-text">
+                    <div class="footer-logo-bb">
+                        <img src="https://img.utdstc.com/icon/d96/41c/d9641ca4f7a475e91d036e08c83dff7e51c31798115714650342f0711bd6f7b0:200"
+                            alt="bigbasket">
+                    </div>
+                    <div class="footer-brand-text">
+                        <div class="footer-brand-name">
+                            <span class="bb-red">big</span><span>basket</span>
+                        </div>
+                        <div class="footer-tata">
+                            A <span class="tata-blue">TATA</span> <span class="enterprise-blue">Enterprise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-download">
+                        <img src="https://bloggyconference.com/wp-content/uploads/2021/09/google-play.jpg"
+                            alt="Get it on Google Play">
+                        <img src="https://bloggyconference.com/wp-content/uploads/2021/09/app-store.jpg"
+                            alt="Download on the App Store">
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="https://images.chesscomfiles.com/proxy/oi64.tinypic.com/qz2kxy/http/adf7c3ce10.jpg" alt="" class="login-footer-icon"></a>
+                        <a href="#" aria-label="Instagram"><img src="https://www.meridian.mi.us/home/showpublishedimage/10016/637678948611330000" alt="" class="login-footer-icon"></a>
+                        <a href="#" aria-label="Twitter"><img src="https://www.meridian.mi.us/home/showpublishedimage/10028/637678948646300000" alt="" class="login-footer-icon"></a>
+                        <a href="#" aria-label="Pinterest"><img src="https://i.pinimg.com/474x/78/8f/1b/788f1b42cca8a09e29fdaa7536b69d6f.jpg" alt="" class="login-footer-icon"></a>
+                    </div>
+            </div>
+        </div>
+
+        <div class="cities-section">
+            <h3>Cities We Serve</h3>
+            <div class="cities-list">
+                <span><a href="#">Abohar</a></span>
+                <span><a href="#">Abu Road</a></span>
+                <span><a href="#">Achampet</a></span>
+                <span><a href="#">Achrol</a></span>
+                <span><a href="#">Adampur</a></span>
+                <span><a href="#">Addanki</a></span>
+                <span><a href="#">Addateegala</a></span>
+                <span><a href="#">Adilabad</a></span>
+                <span><a href="#">Adimali</a></span>
+                <span><a href="#">Adoni</a></span>
+                <span><a href="#">Adoor</a></span>
+                <span><a href="#">Afzalpur</a></span>
+                <span><a href="#">Agali</a></span>
+                <span><a href="#">AGARTALA</a></span>
+                <span><a href="#">Agra</a></span>
+                <span><a href="#">Ahmedabad Rural</a></span>
+                <span><a href="#">Ahmedabad-Gandhinagar</a></span>
+                <span><a href="#">Aizawl</a></span>
+                <span><a href="#">Ajeetgarh</a></span>
+                <span><a href="#">Ajmer</a></span>
+                <span><a href="#">Ajnala</a></span>
+                <span><a href="#">Akaloor</a></span>
+                <span><a href="#">Akbarpur</a></span>
+                <span><a href="#">Akbarpur-UP</a></span>
+                <span><a href="#">Aklera</a></span>
+                <span><a href="#">Akola</a></span>
+                <span><a href="#">Alair</a></span>
+                <span><a href="#">Alakode</a></span>
+                <span><a href="#">Aland</a></span>
+                <span><a href="#">Alappuzha</a></span>
+                <span><a href="#">Aliganj</a></span>
+                <span><a href="#">Aligarh</a></span>
+                <span><a href="#">Aligarh District</a></span>
+                <span><a href="#">ALIPURDUAR</a></span>
+                <span><a href="#">Alirajpur</a></span>
+                <span><a href="#">Allagadda</a></span>
+                <span><a href="#">Allahabad</a></span>
+                <span><a href="#">Alleppey</a></span>
+                <span><a href="#">Almora</a></span>
+                <span><a href="#">ALNAVAR</a></span>
+                <span><a href="#">Alote</a></span>
+                <span><a href="#">Alur</a></span>
+                <span><a href="#">Aluva</a></span>
+                <span><a href="#">Alwar</a></span>
+                <span><a href="#">Amalapuram</a></span>
+                <span><a href="#">Amangal</a></span>
+                <span><a href="#">Amanganj</a></span>
+                <span><a href="#">Amarapuram</a></span>
+                <span><a href="#">Amaravathi</a></span>
+                <span><a href="#">Amarpatan</a></span>
+                <span><a href="#">Amarwara</a></span>
+                <span><a href="#">Ambala</a></span>
+                <span><a href="#">Ambasamudram</a></span>
+                <span><a href="#">Ambuj Nagar</a></span>
+                <span><a href="#">Ambur</a></span>
+                <span><a href="#">Amethi District</a></span>
+                <span><a href="#">Amiliya</a></span>
+                <span><a href="#">Amla</a></span>
+                <span><a href="#">Amravati</a></span>
+            </div>
+            <span class="show-more-cities">Show more +</span>
+        </div>
+
+        <div class="popular-section">
+            <div>
+                <h3>Popular Categories</h3>
+                <div class="popular-categories">
+                    <a href="#">Sunflower Oils</a>
+                    <a href="#">Wheat Atta</a>
+                    <a href="#">Ghee</a>
+                    <a href="#">Milk</a>
+                    <a href="#">Health Drinks</a>
+                    <a href="#">Flakes</a>
+                    <a href="#">Organic F&V</a>
+                    <a href="#">Namkeen</a>
+                    <a href="#">Eggs</a>
+                    <a href="#">Floor Cleaners</a>
+                    <a href="#">Other Juices</a>
+                    <a href="#">Leafy Vegetables</a>
+                    <a href="#">Frozen Veg Food</a>
+                    <a href="#">Diapers & Wipes</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2024-2026 Supermarket Grocery Supplies Pvt Ltd</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
