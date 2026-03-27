@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growfitter - We reward you to stay healthy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: black;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ff4500;
+            letter-spacing: -1px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .download-btn {
+            padding: 12px 32px;
+            background: white;
+            color: #ff4500;
+            border: 2px solid #ff4500;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: #ff4500;
+            color: white;
+        }
+
+        .login-btn {
+            padding: 12px 32px;
+            background: white;
+            color: #ff4500;
+            border: 2px solid #ff4500;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-btn:hover {
+            background: #FF4500;
+            color: white;
+        }
+
+        .icon {
+            width: 42px;
+            height: 42px;
+        }
+
+        .iconm {
+            width: 70px;
+        }
+
+        #loginModalToggle {
+            display: none;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #loginModalToggle:checked~.modal-overlay {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-container {
+            display: grid;
+            grid-template-columns: 400px 500px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        #loginModalToggle:checked~.modal-overlay .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .benefits-section {
+            background: #FF4500;
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .benefits-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .benefits-underline {
+            width: 60px;
+            height: 4px;
+            background: white;
+            margin-bottom: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 35px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .login-section {
+            padding: 50px 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-tabs {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        input[name="authTab"] {
+            display: none;
+        }
+
+        .tab {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ccc;
+            cursor: pointer;
+            padding-bottom: 10px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #loginTab:checked~.login-tabs label[for="loginTab"],
+        #signupTab:checked~.login-tabs label[for="signupTab"] {
+            color: #000;
+            border-bottom-color: #FF4500;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .form-input-wrapper {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FF4500;
+            box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+        }
+
+        #passwordToggle {
+            display: none;
+        }
+
+        .password-toggle-label {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+            font-size: 18px;
+            padding: 5px;
+            user-select: none;
+        }
+
+        #passwordToggle:checked~#passwordInput {
+            -webkit-text-security: none;
+        }
+
+        .password-toggle-label::before {
+            content: '👁';
+        }
+
+        #passwordToggle:checked~.password-toggle-label::before {
+            content: '👁️‍🗨️';
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: -10px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #FF4500;
+        }
+
+        .remember-me label {
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            font-size: 14px;
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #FF6B35;
+        }
+
+        .terms-text {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-top: -10px;
+        }
+
+        .terms-text a {
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            background: #FF4500;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .login-button:hover {
+            background: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+        }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .facebook-btn {
+            background: #3b5998;
+            color: white;
+        }
+
+        .facebook-btn:hover {
+            background: #2d4373;
+        }
+
+        .google-btn {
+            background: #db4437;
+            color: white;
+        }
+
+        .google-btn:hover {
+            background: #c23321;
+        }
+
+        .signup-prompt {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signup-prompt a {
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .signup-prompt a:hover {
+            text-decoration: underline;
+        }
+
+        .demo-login-btn {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            padding: 12px 30px;
+            background: #FF4500;
+            color: white;
+            border: 2px solid #FF4500;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .demo-login-btn:hover {
+            background: white;
+            color: #FF4500;
+        }
+
+        .demo-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 60px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .demo-title span {
+            color: #FF4500;
+        }
+
+        .hero-section {
+            padding: 80px 80px 60px;
+            text-align: center;
+            background: white;
+        }
+
+        .hero-title {
+            font-size: 92px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        .hero-title .stay-healthy {
+            display: block;
+        }
+
+        .phone-mockups {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            width: 85vw;
+        }
+
+        .phone-mockup {
+            width: 240px;
+            height: 480px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 8px solid #333;
+        }
+
+        .cta-section {
+            padding: 60px 80px;
+            text-align: center;
+            background: white;
+        }
+
+        .cta-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .get-app-btn {
+            padding: 16px 40px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .get-app-btn:hover {
+            background: #e63e00;
+            transform: translateY(-2px);
+        }
+
+        .learn-more-btn {
+            padding: 23px 40px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background: #e63e00;
+        }
+
+        .token-section {
+            padding: 80px 80px;
+            background: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .token-content {
+            max-width: 600px;
+            flex: 1;
+        }
+
+        .token-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .token-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 50px;
+        }
+
+        .token-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .stat-box {
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 30px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            flex: 1;
+            min-width: 150px;
+            transition: transform 0.35s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+            will-change: transform;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: #8b5cf6;
+            box-shadow: 0 18px 40px rgba(139,92,246,0.14), 0 6px 18px rgba(0,0,0,0.45);
+            background: linear-gradient(180deg, rgba(139,92,246,0.03), rgba(0,0,0,0.02));
+        }
+
+        .stat-label {
+            color: #a78bfa;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: color 0.25s ease;
+        }
+
+        .stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            color: #ffffff ;
+            text-shadow: 0 6px 18px rgba(139,92,246,0.12);
+            transition: color 0.25s ease, text-shadow 0.35s ease;
+        }
+
+        .stat-box:hover .stat-value {
+            color: #8b5cf6;
+            text-shadow: 0 12px 30px rgba(139,92,246,0.28);
+        }
+
+        .token-image {
+            width: 500px;
+            height: 500px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .brand-logos-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .brand-logos-slider {
+            display: flex;
+            gap: 50px;
+            animation: scrollBrands 20s linear infinite;
+            width: max-content;
+            align-items: center;
+        }
+
+        .brand-logos-slider:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollBrands {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .brand-logo-static {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.2;
+            text-align: center;
+            flex-shrink: 0;
+            min-width: 100px;
+        }
+
+        .brands-section {
+            padding: 80px 80px;
+            background: #000;
+            color: white;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .logo-slider {
+            display: flex;
+            gap: 80px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .logo-slider:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .brand-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .brand-logo:hover {
+            opacity: 1;
+        }
+
+        .explore-btn {
+            padding: 16px 50px;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            color: #8b5cf6;
+        }
+
+        .fitness-section {
+            padding: 80px 80px;
+            background: url('https://res.cloudinary.com/dprcvoo9b/image/upload/v1762878187/gym_gi3xf2.webp') center/cover no-repeat #000;
+            color: white;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fitness-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .fitness-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .explore-fitness-btn {
+            padding: 16px 50px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+
+        .explore-fitness-btn:hover {
+            background: white;
+            color: #000;
+        }
+
+        .workforce-section {
+            padding: 80px 80px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+        }
+
+        .workforce-content {
+            max-width: 600px;
+            flex: 1;
+        }
+
+        .workforce-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            color: #000;
+        }
+
+        .workforce-title .brand-name {
+            color: #ff4500;
+        }
+
+        .workforce-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: #ffe5e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 32px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .learn-more-workforce-btn {
+            padding: 16px 50px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-workforce-btn:hover {
+            background: #e63e00;
+        }
+
+        .workforce-image {
+            width: 600px;
+            height: 600px;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+
+        .partner-section {
+            padding: 80px 80px;
+            background: #f5f5f5;
+            background-image: url('https://res.cloudinary.com/dprcvoo9b/image/upload/v1762952535/kante_wmib59.jpg');
+        }
+
+        .partner-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .partner-title .brand-name {
+            color: #ff4500;
+        }
+
+        .partner-subtitle {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .partner-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .register-btn {
+            padding: 16px 40px;
+            background: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background: #e63e00;
+        }
+
+        .trainer-btn {
+            padding: 16px 40px;
+            background: white;
+            color: #ff4500;
+            border: 2px solid #ff4500;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .trainer-btn:hover {
+            background: #ff4500;
+            color: white;
+        }
+        .icon_work{
+            width: 6.5vw;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+
+        .rewards-section {
+            padding: 50px 40px;
+            padding-bottom: 1px;
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            text-align: center;
+            width: 80vw;
+            height: 60vw;
+            border-radius: 30px;
+        }
+
+        .rewards-header {
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .rewards-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .rewards-subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .rewards-slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            margin-bottom: 50px;
+        }
+
+        .rewards-slider {
+            display: flex;
+            gap: 30px;
+            animation: scrollRewards 40s linear infinite;
+            width: max-content;
+        }
+
+        .rewards-slider:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollRewards {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-320px * 5 - 150px));
+            }
+        }
+
+        .reward-card {
+            width: 320px;
+            background: #b93e33;
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .reward-image-container {
+            width: 100%;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .reward-image-container img {
+            width: 15vw;
+        }
+
+        .reward-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .reward-description {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .reward-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reward-worth,
+        .reward-redeem {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reward-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .reward-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .download-rewards-btn {
+            padding: 18px 60px;
+            background: white;
+            color: #ff4500;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .download-rewards-btn:hover {
+            background: #ffe5e0;
+            transform: translateY(-2px);
+        }
+         .footer {
+            background: #000;
+            color: white;
+            padding: 60px 60px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #FF4500;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FF4500;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .app-btn {
+            width: 140px;
+            height: 45px;
+            background: #222;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #FF4500;
+        }
+        .icons{
+            width: 25px;
+        }
+         .icono{
+            width: 160px;
+        }
+
+        @media (max-width: 1200px) {
+
+            .navbar,
+            .hero-section,
+            .cta-section,
+            .token-section,
+            .brands-section,
+            .fitness-section,
+            .workforce-section,
+            .partner-section,
+            .rewards-section {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .token-section {
+                flex-direction: column;
+            }
+
+            .token-image {
+                width: 400px;
+                height: 400px;
+            }
+
+            .workforce-section {
+                flex-direction: column;
+            }
+
+            .workforce-image {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero-section,
+            .cta-section,
+            .token-section,
+            .brands-section,
+            .fitness-section,
+            .workforce-section,
+            .partner-section,
+            .rewards-section {
+                padding: 40px 20px;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .cta-title,
+            .rewards-title {
+                font-size: 32px;
+            }
+
+            .token-title,
+            .fitness-title,
+            .workforce-title,
+            .partner-title {
+                font-size: 36px;
+            }
+
+            .phone-mockups {
+                gap: 15px;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 360px;
+            }
+
+            .token-stats {
+                flex-direction: column;
+            }
+
+            .stat-box {
+                width: 100%;
+            }
+
+            .workforce-features {
+                grid-template-columns: 1fr;
+            }
+
+            .rewards-slider {
+                animation: scrollRewardsMobile 40s linear infinite;
+            }
+
+            @keyframes scrollRewardsMobile {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(calc(-320px * 5 - 150px));
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .get-app-btn,
+            .learn-more-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .phone-mockup {
+                width: 140px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="loginModalToggle">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="./index.html"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762581917/logo_rkvx38.svg" alt="" class="icono"></a></div>
+        <div class="nav-right">
+            <a href="#" class="download-btn">Download Now</a>
+            <label for="loginModalToggle" class="login-btn">Login</label>
+        </div>
+    </nav>
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <!-- Close Button -->
+            <label for="loginModalToggle" class="modal-close">&times;</label>
+
+            <!-- Left Side - Benefits -->
+            <div class="benefits-section">
+                <h2 class="benefits-title">Benefits of having Growfitter account</h2>
+                <div class="benefits-underline"></div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqMYBtazV0MOAXl6vYYI8oyczDRMUWP3NmeR-pZSFk4d5id99m"
+                            alt="" class="icon">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Explore fitness centers Pan India with best deals</h3>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762581541/walk-removebg-preview_smnqma.png"
+                            alt="" class="iconm">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Track your workouts on the growfitter app</h3>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762581825/badge-removebg-preview_mdlga9.png"
+                            alt="" class="iconm">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Workout & Earn Daily Rewards & 100% Cashback</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Login Form -->
+            <div class="login-section">
+                <!-- Tab Radio Buttons (Hidden) -->
+                <input type="radio" name="authTab" id="loginTab" checked>
+                <input type="radio" name="authTab" id="signupTab">
+
+                <div class="login-tabs">
+                    <label for="loginTab" class="tab">Log In</label>
+                    <label for="signupTab" class="tab">Sign Up</label>
+                </div>
+
+                <form class="login-form" action="#" method="post">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="form-input-wrapper">
+                            <input type="password" class="form-input" id="passwordInput"
+                                placeholder="Enter your password" required>
+                            <input type="checkbox" id="passwordToggle">
+                            <label for="passwordToggle" class="password-toggle-label"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Remember Me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forget password ?</a>
+                    </div>
+
+                    <div class="terms-text">
+                        By logging in, you agree to our <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a>
+                    </div>
+
+                    <button type="submit" class="login-button">Login</button>
+
+                    <div class="social-login">
+                        <a href="#" class="social-button facebook-btn">
+                            <span>f</span> Facebook
+                        </a>
+                        <a href="#" class="social-button google-btn">
+                            <span>G</span> Google
+                        </a>
+                    </div>
+
+                    <div class="signup-prompt">
+                        Not a member? <a href="#">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">
+            we reward you to
+            <span class="stay-healthy">stay healthy</span>
+        </h1>
+        <div class="phone-mockups">
+            <img src="https://www.growfitter.com/images/home-app-preview-v2.webp" alt="" class="phone-mockups">
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">Start your fitness journey today & earn amazing rewards daily</h2>
+        <div class="cta-buttons">
+            <a href="#" class="get-app-btn">
+                Get app
+                <img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762922954/Screenshot_2025-11-08_001237-removebg-preview_srpedn.png" alt="">
+            </a>
+            <a href="#" class="learn-more-btn">Learn more</a>
+        </div>
+    </section>
+
+    <!-- Token Section -->
+    <section class="token-section">
+        <div class="token-content">
+            <h2 class="token-title">World's first token with real world rewards</h2>
+            <p class="token-subtitle">$GFIT is a revolutionary RWA and brand Rewards platform powered by AI. Now Unlock
+                Assured Real-World Luxury + High-Yield Earnings!</p>
+            <div class="token-stats">
+                <div class="stat-box">
+                    <div class="stat-label">REGISTERED APP USERS</div>
+                    <div class="stat-value">3M +</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">ON-CHAIN WALLETS</div>
+                    <div class="stat-value">1M +</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">REWARDS</div>
+                    <div class="stat-value">1.5M +</div>
+                </div>
+            </div>
+            <div class="brand-logos-container">
+                <div class="brand-logos-slider">
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953495/gillette-2_kyqrqs.png" alt=""></div>
+                     <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953495/amazon-1_omp04b.png" alt=""></div>
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953495/myglamm-12_ztbvsf.png" alt=""></div>
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953495/ck-13_rdq0az.png" alt=""></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953495/th-14_gr3qm5.png" alt=""></div>
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953496/lakme-11_oedjdq.png" alt=""></div>
+                     <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953496/pg-8_ww2psb.png" alt=""></div>
+                    <div class="brand-logo-static"><img src="hhttps://res.cloudinary.com/dprcvoo9b/image/upload/v1762953496/hyperice-6_qrb7jt.png" alt=""></div>
+                    <div class="brand-logo-static"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762953496/jockey-7_gxa6cf.png" alt=""></div>
+                </div>
+            </div>
+            <a href="#" class="explore-btn">Explore GFIT</a>
+        </div>
+        <div class="token-image"><img src="https://www.growfitter.com/images/gfit/bitcoin-stack.svg" alt=""></div>
+    </section>
+
+
+    <!-- Fitness Centers Section -->
+    <section class="fitness-section">
+        <h2 class="fitness-title">Explore best fitness<br>centers near you</h2>
+        <p class="fitness-description">Workout at the best fitness centres near you with best discount. These selected
+            gyms & fitness studios have best in class safety, hygiene & equipment standards.</p>
+        <a href="#" class="explore-fitness-btn">Explore</a>
+    </section>
+
+    <!-- Transform Workforce Section -->
+    <section class="workforce-section">
+        <div class="workforce-content">
+            <h2 class="workforce-title">Transform your workforce with <span class="brand-name">Growfitter</span></h2>
+            <div class="workforce-features">
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="https://5.imimg.com/data5/EH/YS/GLADMIN-47618084/bulk-hiring-services.png" alt="" class="icon_work"></div>
+                    <div class="feature-title">Engaging employees</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnIbGU0su1OKAttdUTV1ScxW2ay_vyhvA_7CcrgxvrYAGpAw2X" alt="" class="icon_work"></div>
+                    <div class="feature-title">Empowering people</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="https://upstairtechnologies.com/images/icon/menu-icon/Our-Culture.svg" alt="" class="icon"></div>
+                    <div class="feature-title">Building a culture</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762922730/man-removebg-preview_mxqewj.png" alt="" class="icon"></div>
+                    <div class="feature-title">Maximizing HR investments</div>
+                </div>
+            </div>
+            <a href="#" class="learn-more-workforce-btn">Learn more</a>
+        </div>
+        <div class="workforce-image">
+            <img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762547900/corp-mockup_zvtlwo.png" alt="" class="workforce-image">
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section class="partner-section">
+        <h2 class="partner-title">Partner with <span class="brand-name">Growfitter</span></h2>
+        <p class="partner-subtitle">Grow your business with us and get more customers</p>
+        <div class="partner-buttons">
+            <a href="#" class="register-btn">Register your center</a>
+            <a href="#" class="trainer-btn">Register as a trainer</a>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+     <div class="main">
+        <section class="rewards-section">
+        <div class="rewards-header">
+            <h2 class="rewards-title">Get Free Rewards with GP Points</h2>
+            <p class="rewards-subtitle">Burn calories, not cash! Earn Growfitter Points daily by staying active and
+                redeem them for top rewards — all for living healthy.</p>
+        </div>
+        <div class="rewards-slider-wrapper">
+            <div class="rewards-slider">
+                <!-- Reward Card 1 -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-iwatch_ntcvli.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE Apple Watch</h3>
+                    <p class="reward-description">Get a Chance to Win Apple Watch 10</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 46,900</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reward Card 2 -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-flip_b522rj.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE Galaxy Z Flip 5</h3>
+                    <p class="reward-description">Get a Chance to WIN Samsung Z Flip 5</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 99,999</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reward Card 3 -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-ola_sx6eq0.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE S1 Pro</h3>
+                    <p class="reward-description">Get a Chance to Win Ola S1 Pro</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 1,27,000</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reward Card 4 -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-netflix_a8smtc.png" alt=""></div>
+                    <h3 class="reward-title">Win a Month of Netflix</h3>
+                    <p class="reward-description">Win a Free Netflix 4K HDR Subscription</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 649</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reward Card 5 -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-pvr_h4yqf0.png" alt=""></div>
+                    <h3 class="reward-title">Enjoy the Show with a PVR</h3>
+                    <p class="reward-description">You will receive a PVR gift voucher</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 250</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">1499 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate cards for continuous scroll -->
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-iwatch_ntcvli.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE Apple Watch</h3>
+                    <p class="reward-description">Get a Chance to Win Apple Watch 10</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 46,900</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-flip_b522rj.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE Galaxy Z Flip 5</h3>
+                    <p class="reward-description">Get a Chance to WIN Samsung Z Flip 5</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 99,999</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-ola_sx6eq0.png" alt=""></div>
+                    <h3 class="reward-title">Win a FREE S1 Pro</h3>
+                    <p class="reward-description">Get a Chance to Win Ola S1 Pro</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 1,27,000</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-netflix_a8smtc.png" alt=""></div>
+                    <h3 class="reward-title">Win a Month of Netflix</h3>
+                    <p class="reward-description">Win a Free Netflix 4K HDR Subscription</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 649</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">9 GP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-card">
+                    <div class="reward-image-container"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762864184/gp-pvr_h4yqf0.png" alt=""></div>
+                    <h3 class="reward-title">Enjoy the Show with a PVR</h3>
+                    <p class="reward-description">You will receive a PVR gift voucher</p>
+                    <div class="reward-info">
+                        <div class="reward-worth">
+                            <span class="reward-label">Worth</span>
+                            <span class="reward-value">Rs 250</span>
+                        </div>
+                        <div class="reward-redeem">
+                            <span class="reward-label">Redeem for</span>
+                            <span class="reward-value">1499 GP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="download-rewards-btn">Download now</a>
+    </section>
+     </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+               <div class="logo"><a href="./index.html"><img src="https://res.cloudinary.com/dprcvoo9b/image/upload/v1762581917/logo_rkvx38.svg" alt="" class="icono"></a></div>
+                <p class="footer-desc">Growfitter.com is India's Biggest Incentivised Wellness Platform. Our vision is
+                    to motivate individual and families to adopt an active and healthy lifestyle. We are a machine
+                    learning technology startup building health quotient of India and revolutionizing the health,
+                    wellness & insurance industry with the technology</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="">About Us</a></li>
+                    <li><a href="https://growfitterstore.com/">Store</a></li>
+                    <li><a href="">Offers</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="">Partner With Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Terms & conditions</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Download App</h3>
+                <div class="app-buttons">
+                    <div class="app-btn"><img src="https://www.growfitter.com/images/gp-btn.svg" alt=""></div>
+                    <div class="app-btn"><img src="https://www.growfitter.com/images/as-btn.svg" alt=""></div>
+                </div>
+                <h3>Follow us on</h3>
+               <div class="social-links">
+                    <div class="social-icon"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRIIlSDb0V2c69BcV6sbCKkNUMsw1OCizYFY7OcUafEe3mTGz94" alt="" class="icon"></div>
+                    <div class="social-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeCeoLr_b7VV1G-r8wNSAYSZTUV6S7S0T3DPYugEPHwv0udjGW" alt="" class="icon"></div>
+                    <div class="social-icon"><img src="https://www.sea6energy.com/images/common/ic_fb.png" alt="" class="icon"></div>
+                    <div class="social-icon"><img src="https://wpcdn.kuusoft.com/wp-content/uploads/2020/07/03201817/footer-icon-youtube.png" alt="" class="icon"></div>
+                    <div class="social-icon"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQzcBDCtLkkAewVmoMsCa5_xPgA7IoRjtU3fmwuxKSo_ObTFhoy" alt="" class="icon"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
